@@ -1,29 +1,30 @@
 <template>
-  <v-app dark>
-    <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
-    </v-content>
-  </v-app>
+    <v-app>
+        <v-content>
+            <Header @sideNavToggle="displaySideNav = !displaySideNav" />
+            <SideNav 
+                :show="displaySideNav"
+                @close="displaySideNav = false"
+            />
+            <nuxt />
+        </v-content>
+    </v-app>
 </template>
 
 <script>
-  export default {
+import Header from '@/components/Navigation/Header';
+import SideNav from '@/components/Navigation/SideNav';
+
+export default {
+    components: {
+        Header,
+        SideNav
+    },
+
     data() {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
-      }
+        return {
+            displaySideNav: false
+        }
     }
-  }
+}
 </script>

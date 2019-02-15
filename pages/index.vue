@@ -1,20 +1,47 @@
 <template>
-    <v-layout
-        column
-        justify-center
-        align-center>
-        <h1>Hello, this is my first nuxt app!</h1>
-    </v-layout>
+    <v-container>
+        <v-layout row wrap>
+            <v-flex xs12 class="intro">
+                I N T R O
+            </v-flex>
+
+            <v-flex xs12 class="featured-posts">
+                <PostPreview />
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import PostPreview from '@/components/Posts/PostPreview';
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
+    components: {
+        PostPreview
+    }
 }
 </script>
+
+<style scoped>
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.intro {
+    font-size:20pt;
+    text-align: center;
+    height: 300px;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+    background-position: center;
+    background-size: cover;
+    background-image: url('~assets/images/fatkitto.jpg');
+}
+
+.featured-posts {
+    color:gray;
+}
+
+</style>
