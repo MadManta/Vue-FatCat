@@ -8,7 +8,7 @@ COPY . .
 # Staging environment variables
 #ENV NUXT_PORT=443
 
-RUN npm run generate
+RUN npm generate
 
 # Second stage
 FROM nginx:1.15.2-alpine
